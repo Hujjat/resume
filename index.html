@@ -185,7 +185,7 @@
       
         .edu .item:before{
             content: "";
-            width: 2px;
+            width: 1px;
             background: #f44336;
             position: absolute;
             bottom: 0;
@@ -237,7 +237,12 @@
             z-index: 100;
         }
 
-
+        .second-page .about-me,
+        .second-page .skills{
+            top: 110px;
+            padding-top: 0; 
+        }
+      
         @media print{
             .contact{
                 bottom: -670px;
@@ -253,6 +258,19 @@
                width: 100%;
                height: 100%;
             }
+
+            .page.second-page{
+                position: absolute;
+                top: 42cm; 
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 1rem;
+                padding-top: 4rem;
+                width: 100%;
+                height: 100%;                
+            }
+
         }
 
 
@@ -262,6 +280,8 @@
     <div id="app">
         <button class="btn btn-primary d-print-none position-fixed" @click="printpdf()">Print PDF</button>
         <button class="btn btn-success d-print-none position-fixed mt-5" @click="saveData()">Save Data</button>
+
+        <!-- page -->
         <div class="page">
             <div class="container position-relative">
                 <div class="row">
@@ -357,13 +377,80 @@
 
             </div>
         </div>
+        <!-- end page -->
+
+        <!-- second page -->
+        <div class="page second-page">
+            <div class="container position-relative">
+               
+                <div class="about-me br-right">
+                    <h2 class="text-uppercase" contenteditable="true">Work Experience</h2>
+
+                    <div class="edu">
+                        <div class="item" v-for="(item, index) in Education.list">
+                            <span @click="removeEducation(index)" class="d-print-none z-index-top badge badge-danger float-right">X</span>
+                            <h3 class="point" contenteditable="true">{{item.date}}</h3>
+                            <h3 class="name" contenteditable="true">{{item.name}}</h3>
+                            <p contenteditable="true">
+                                {{item.des}}
+                            </p>
+
+                        </div>
+                        <span @click="addEducation" class="d-print-none badge badge-success">+</span>
+                    </div>
+
+                </div>
+
+                <div class="skills">
+
+                    <h2 class="text-uppercase" contenteditable="true">Skills</h2>
+                    <div class="exp">
+                        <div class="exp-item" v-for="(item, index) in Experience.list">
+                            <span @click="removeExperience(index)" class="d-print-none float-right badge badge-danger">X</span>
+                            <h3 class="title" contenteditable="true">{{item.title}}</h3>
+                            <h3 class="location" contenteditable="true">{{item.location}}</h3>
+                            <h3 class="date" contenteditable="true">{{item.date}}</h3>
+                            <p contenteditable="true">
+                                {{item.des}}
+                            </p>
+
+                        </div>
+                        <span @click="addExperience" class="d-print-none badge badge-success">+</span>
+                    </div>
+                </div>
+
+                <div class="contact pl-4">
+                    <h2 class="text-uppercase" contenteditable="true">Contact Me</h2>
+                    <div class="d-flex nt-between pt-3">
+                        <div class="widget flex-fill" contenteditable="true">
+                            <img src="img/map.svg" class="pr-1 pl-1" width="40px" alt=""> Sydney, Australia
+                        </div>
+                        <div class="widget flex-fill " contenteditable="true">
+                            <img src="img/gmail.svg" class="pr-1 pl-1" width="40px" alt=""> shaqaeqrezai@gmail.com 
+                        </div>
+                    </div>
+
+                    <div class="d-flex nt-between pt-3">
+                        <div class="widget flex-grow-1 mr-5" contenteditable="true">
+                            <img src="img/linkedin.svg" class="pr-1 pl-1" width="35px" alt=""> /shaqaeq-rezai
+                        </div>
+
+                        <div class="widget flex-fill pl-4" contenteditable="true">
+                            <img src="img/telephone.svg" width="30px" alt=""> 0469 187 107 
+                        </div>
+
+                        <div class="widget " contenteditable="true">
+                            <img src="img/twitter.svg" width="30px" alt=""> @shaqaeqrezai
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- end second page -->
 
     </div>
-
-
-
-
-
 
     <script src="js/jquery-3.3.1.slim.min.js"></script>
     <script src="js/popper.min.js"></script>
@@ -397,7 +484,7 @@
                             {
                             name: 'HS1917 UNSW',
                             date: '2017',
-                            des: 'programming and computer design.'
+                            des: 'Programming and computer design.'
                             }
                         ]
                     },
