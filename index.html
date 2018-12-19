@@ -11,6 +11,7 @@
             width: 29cm;
             height: 39cm;  
             margin: 0 auto;
+            padding-top: 3rem;
             background-image: url('img/header.svg'),  url('img/footer.svg');
             background-size: contain,contain;
             background-repeat: no-repeat, no-repeat;
@@ -193,7 +194,9 @@
         .edu .item:last-of-type:before{
             background-color:transparent;
         }
-
+        .edu .item .name{
+            font-size: 22px;
+        }
         h2.text-uppercase{
             font-size: 26px;
         }
@@ -207,7 +210,7 @@
         }
         .exp .exp-item h3.location{
             font-size: 20px;
-            margin-bottom: 0;
+            margin-bottom: 4px;
         }
         .exp .exp-item h3.date{
             font-size: 18px;
@@ -222,13 +225,13 @@
 
         .contact{
             position: absolute;
-            bottom: -654px;
+            bottom: -570px;
             color: #fff;
             width: 660px;
         }
         @media print{
             .contact{
-                bottom: -540px;
+                bottom: -670px;
             }
             .page{
                position: absolute;
@@ -237,6 +240,7 @@
                left: 0;
                right: 0;
                padding: 1rem;
+               padding-top: 4rem;
                width: 100%;
                height: 100%;
             }
@@ -272,13 +276,13 @@
                 <div class="about-me br-right">
                     <h2 class="text-uppercase" contenteditable="true">About me</h2>
                     <p contenteditable="true">I am an enthusiastic learner and an excellent team player with remarkable leadership skills. I have outstanding communication expertise with distinctive qualities in project management , social media content strategy and user experience design. I enjoy solving problems using contemporary research methods.</p>
-                    <h2 class="text-uppercase" contenteditable="true">Education</h2>
+                    <h2 class="text-uppercase mt-5" contenteditable="true">Education</h2>
 
                     <div class="edu">
                         <div class="item" v-for="(item, index) in Education.list">
                             <span @click="removeEducation(index)" class="d-print-none badge badge-danger float-right">X</span>
                             <h3 class="point" contenteditable="true">{{item.date}}</h3>
-                            <h3 contenteditable="true">{{item.name}}</h3>
+                            <h3 class="name" contenteditable="true">{{item.name}}</h3>
                             <p contenteditable="true">
                                 {{item.des}}
                             </p>
@@ -299,7 +303,7 @@
                         <span @click="addSkillOne" class="d-print-none badge badge-success">+</span>
                     </ul>
 
-                    <h2 class="text-uppercase" contenteditable="true">Volunteering Experience</h2>
+                    <h2 class="text-uppercase mt-5" contenteditable="true">Volunteering Experience</h2>
                     <div class="exp">
                         <div class="exp-item" v-for="(item, index) in Experience.list">
                             <span @click="removeExperience(index)" class="d-print-none float-right badge badge-danger">X</span>
