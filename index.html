@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Resume</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <style>
+        .page{
+            width: 29cm;
+            height: 39cm;  
+            margin: 0 auto;
+            background-image: url('img/header.svg'),  url('img/footer.svg');
+            background-size: contain,contain;
+            background-repeat: no-repeat, no-repeat;
+            background-position: center top, bottom center;
+        }
+        .fullName{
+               position: absolute;
+                top: 157px;
+                right: 78px;
+                background: #2a2a2a;
+                color: #fff;
+                border-radius: 30px;
+                width: 380px;
+        }
+        input{
+            display: inline-block;
+             width: 100%;
+        }
+        .fullName input{
+            border: none;
+            background: transparent;
+            font-size: 41px;
+            font-weight: bold;
+            color: #fff;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .dot{
+            background-color: #2a2a2a;
+            position: absolute;
+            border-radius: 30px;
+        }
+        .red-dot{
+            background-color: #f44336;
+            position: absolute;
+            border-radius: 30px;
+        }
+        .dot1{
+            width: 67px;
+            height: 23px;
+            top: 221px;
+            right: 100px;
+        }
+
+        .dot2{
+            width: 34px;
+            height: 23px;
+            top: 221px;
+            right: 64px;
+        }
+
+        .dot3{
+            top: 100px;
+            z-index: 10;
+            width: 100px;
+            height: 20px;
+        }
+        .dot4{
+            top: 120px;
+            z-index: 10;
+            width: 100px;
+            height: 20px;
+            left: -17px;
+        }
+
+        .dot5{
+            top: 230px;
+            z-index: 10;
+            width: 40px;
+            height: 22px;
+            right: 130px
+        }
+
+        .dot6{
+            top: 230px;
+            z-index: 10;
+            width: 77px;
+            height: 22px;
+            right: 50px;
+        }
+
+        .dot7{
+            top: 264px;
+            z-index: 10;
+            width: 77px;
+            height: 26px;
+            right: 110px;
+        }
+
+        .profile-pic{
+            width: 251px;
+            position: absolute;
+            top: 75px;
+            left: 60px;
+        }
+
+        .about-me{
+            position: relative;
+            top: 360px;
+            width: 48%;
+            padding: 1rem;
+        }
+        .about-me textarea{
+            width: 100%;
+            border: 0;
+            outline: none;
+            resize: none;
+            padding-right: 2rem;            
+        }
+        .skills{
+            position: absolute;
+            top: 360px;
+            right: 0;
+            width: 50%;
+            padding: 1rem;
+        }
+        .br-right{
+            border-right: 2px solid #cccccc;
+           
+        }
+        ul li.star-style{
+            list-style: none;
+            padding: 0.4rem 0.2rem;
+            position: relative;
+        }
+        ul li.star-style:before{
+            content:"";
+            position: absolute;
+            height: 30px;
+            width: 30px;
+            left: -34px;
+            top: 3px;
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0MjYuNjY3IDQyNi42NjciIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQyNi42NjcgNDI2LjY2NzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHN0eWxlPSJmaWxsOiNmNDQzMzY7IiBwb2ludHM9IjIxMy4zMzMsMTAuNDQxIDI3OS4yNDksMTQ0LjAxNyA0MjYuNjY3LDE2NS40MzYgMzIwLDI2OS40MSAzNDUuMTczLDQxNi4yMjYgMjEzLjMzMywzNDYuOTEgODEuNDg1LDQxNi4yMjYgMTA2LjY2NywyNjkuNDEgMCwxNjUuNDM2IDE0Ny40MDksMTQ0LjAxNyAiLz48Zz48L2c+PC9zdmc+);
+
+        }
+        .point{
+            position: relative;
+        }
+        .point:before{
+            content:"";
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: -34px;
+            top: 3px;
+            background-color: #f44336;
+            border-radius: 30px;
+        }
+        .edu .item{
+            padding-left: 2.1rem;
+            margin-top: 1.6rem;
+            position: relative;
+            height: 170px;
+        }
+        .edu .item:not(:first-child){
+            margin-top: -10px;
+            top: -10px;
+        }
+
+        .edu .item h3.point{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .edu .item h3:nth-child(2){
+            font-size: 20px;
+        }
+        .edu .item p{
+        }
+
+      
+        .edu .item:before{
+            content: "";
+            width: 2px;
+            background: #f44336;
+            position: absolute;
+            bottom: 0;
+            left: 9px;
+            top: 7px;                    
+        }
+        .edu .item:last-of-type:before{
+            background-color:transparent;
+        }
+
+        h2.text-uppercase{
+            font-size: 26px;
+        }
+
+        .exp .exp-item h3.title{
+            color: #f44336;
+            font-size: 24px;
+        }
+        .exp .exp-item{
+            padding: 1rem 1;
+        }
+        .exp .exp-item h3.location{
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+        .exp .exp-item h3.date{
+            font-size: 18px;
+        }
+        .exp .exp-item p{
+
+        }
+        span.d-print-none:hover{
+            cursor: pointer;
+        }
+        
+
+        .contact{
+            position: absolute;
+            bottom: -654px;
+            color: #fff;
+            width: 660px;
+        }
+        @media print{
+            .contact{
+                bottom: -540px;
+            }
+            .page{
+               position: absolute;
+               top:0;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               padding: 1rem;
+               width: 100%;
+               height: 100%;
+            }
+        }
+
+
+    </style>
+  </head>
+  <body>
+    <div id="app">
+        <button class="btn btn-primary d-print-none position-fixed" @click="printpdf()">Print PDF</button>
+        <button class="btn btn-success d-print-none position-fixed mt-5" @click="saveData()">Save Data</button>
+        <div class="page">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col">
+                        <span class="red-dot dot3"></span>
+                        <span class="red-dot dot4"></span>
+                        <span class="red-dot dot5"></span>
+                        <span class="red-dot dot6"></span>
+                        <span class="red-dot dot7"></span>
+                        <img src="img/profile.png" alt="" class="profile-pic img-fluid">   
+                    </div>
+                    <div class="col">
+                        <div class="fullName">
+                            <input type="text" v-model="fullName">
+                        </div>
+                        <span class="dot dot1"></span>
+                        <span class="dot dot2"></span>                        
+                    </div>
+                </div>
+
+                <div class="about-me br-right">
+                    <h2 class="text-uppercase" contenteditable="true">About me</h2>
+                    <p contenteditable="true">I am an enthusiastic learner and an excellent team player with remarkable leadership skills. I have outstanding communication expertise with distinctive qualities in project management , social media content strategy and user experience design. I enjoy solving problems using contemporary research methods.</p>
+                    <h2 class="text-uppercase" contenteditable="true">Education</h2>
+
+                    <div class="edu">
+                        <div class="item" v-for="(item, index) in Education.list">
+                            <span @click="removeEducation(index)" class="d-print-none badge badge-danger float-right">X</span>
+                            <h3 class="point" contenteditable="true">{{item.date}}</h3>
+                            <h3 contenteditable="true">{{item.name}}</h3>
+                            <p contenteditable="true">
+                                {{item.des}}
+                            </p>
+
+                        </div>
+                        <span @click="addEducation" class="d-print-none badge badge-success">+</span>
+                    </div>
+
+                </div>
+
+                <div class="skills">
+
+                    <h2 class="text-uppercase" contenteditable="true">Skills</h2>
+                    <ul>
+                        <li class="star-style" v-for="(skill, index) in Skills.list" :key="skill.id" contenteditable="true">{{skill}}
+                            <span @click="removeSkill(index)" class="d-print-none badge badge-danger float-right">X</span>
+                        </li>
+                        <span @click="addSkillOne" class="d-print-none badge badge-success">+</span>
+                    </ul>
+
+                    <h2 class="text-uppercase" contenteditable="true">Volunteering Experience</h2>
+                    <div class="exp">
+                        <div class="exp-item" v-for="(item, index) in Experience.list">
+                            <span @click="removeExperience(index)" class="d-print-none float-right badge badge-danger">X</span>
+                            <h3 class="title" contenteditable="true">{{item.title}}</h3>
+                            <h3 class="location" contenteditable="true">{{item.location}}</h3>
+                            <h3 class="date" contenteditable="true">{{item.date}}</h3>
+                            <p contenteditable="true">
+                                {{item.des}}
+                            </p>
+
+                        </div>
+                        <span @click="addExperience" class="d-print-none badge badge-success">+</span>
+                    </div>
+                </div>
+
+                <div class="contact pl-4">
+                    <h2 class="text-uppercase" contenteditable="true">Contact Me</h2>
+                    <div class="d-flex nt-between pt-3">
+                        <div class="widget flex-fill" contenteditable="true">
+                            <img src="img/map.svg" width="30px" alt=""> Sydney, Australia
+                        </div>
+                        <div class="widget flex-fill " contenteditable="true">
+                            <img src="img/gmail.svg" width="30px" alt=""> shaqaeqrezai@gmail.com 
+                        </div>
+                    </div>
+
+                    <div class="d-flex nt-between pt-3">
+                        <div class="widget flex-grow-1 mr-5" contenteditable="true">
+                            <img src="img/linkedin.svg" width="25px" alt=""> /shaqaeq-rezai
+                        </div>
+
+                        <div class="widget pl-4" contenteditable="true">
+                            <img src="img/telephone.svg" width="30px" alt=""> 0469 187 107 
+                        </div>
+
+                        <div class="widget flex-fill" contenteditable="true">
+                            <img src="img/twitter.svg" width="30px" alt=""> @shaqaeqrezai
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/vue.js"></script>
+
+    <script>
+
+        var realData = {
+                    fullName: "Shaqaeq Rezai",
+                    Skills:{
+                        list:
+                            [
+                                'Unique social media content creator',
+                                'Excellent Public Speaker',
+                                'Leadership Potential'
+                            ]
+                    },
+                    Education:{
+                        list:[
+                            {
+                            name: 'Soften High School',
+                            date: '2013 - 2018',
+                            des: 'Graduated Year 12 and successfully completed HSC with over 90% attendance.'
+                            },
+                            {
+                            name: 'Academy Xi',
+                            date: '2017 - 2018',
+                            des: 'Completed User Experience Design course, learnt methods of design thinking and problem solving'
+                            },
+                            {
+                            name: 'HS1917 UNSW',
+                            date: '2017',
+                            des: 'programming and computer design.'
+                            }
+                        ]
+                    },
+
+                    Experience:{
+                        list:[
+                            {
+                            title: 'Director',
+                            location: 'Directaaus.com.au',
+                            date: '2018',
+                            des: 'Created a platform to help newly arrived migrants and refugees access resettlement services in Australia.'
+                            },
+                           
+                            {
+                            title: 'Interpreter',
+                            location: 'The law firm',
+                            date: '2017 - 2018',
+                            des: 'I was a casual interpreter in the Law Firm.'
+                            },
+                           
+                            {
+                            title: 'Youth led project manager',
+                            location: 'The law firm',
+                            date: '2016 - 2017',
+                            des: 'Youth led project manager  Community migrant and resource centre'
+                            },
+                           
+                        ]
+                    }
+        };
+        // end realData
+
+         new Vue({
+                el:"#app",
+                data: realData,
+
+                methods : {
+
+                    removeExperience: function(index){
+                        this.Experience.list.splice(index, 1);
+                    },
+                    removeEducation: function(index){
+                        this.Education.list.splice(index, 1);
+                    },
+                    removeSkill: function(index){
+                        this.Skills.list.splice(index, 1);
+                    },
+
+                    getData: function(){
+                        return window.localStorage.getItem('storeData');
+                    },
+
+                    saveData: function(){
+                        window.localStorage.setItem('storeData', JSON.stringify(this.$data));
+                    },
+
+                    printpdf: function(){
+                        window.print();
+                    },
+                    addSkillOne: function(){
+                        this.Skills.list.push('add new skill');
+                    },
+                    addEducation: function(){
+                        this.Education.list.push({
+                                name:"New Education",
+                                date:"New Date",
+                                des:"New Description"
+                        });
+                    },
+
+                    addExperience: function(){
+                        this.Experience.list.push({
+                                title:"New Title",
+                                location:"New Location",
+                                date:"2019 - 2030",
+                                des:"New Description"
+                        });
+                    }
+                },
+                mounted: function(){
+                    // console.log(this.getData());
+                }
+            });
+
+       
+         
+    
+    </script>
+  </body>
+</html>
