@@ -229,6 +229,12 @@
             color: #fff;
             width: 660px;
         }
+        .z-index-top{
+            position: relative;
+            z-index: 100;
+        }
+
+        
         @media print{
             .contact{
                 bottom: -670px;
@@ -280,7 +286,7 @@
 
                     <div class="edu">
                         <div class="item" v-for="(item, index) in Education.list">
-                            <span @click="removeEducation(index)" class="d-print-none badge badge-danger float-right">X</span>
+                            <span @click="removeEducation(index)" class="d-print-none z-index-top badge badge-danger float-right">X</span>
                             <h3 class="point" contenteditable="true">{{item.date}}</h3>
                             <h3 class="name" contenteditable="true">{{item.name}}</h3>
                             <p contenteditable="true">
