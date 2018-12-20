@@ -45,7 +45,7 @@
             border-radius: 30px;
         }
         .red-dot{
-            background-color: #f44336;
+            background-color: #E3495A;
             position: absolute;
             border-radius: 30px;
         }
@@ -158,7 +158,7 @@
             width: 20px;
             left: -34px;
             top: 3px;
-            background-color: #f44336;
+            background-color: #E3495A;
             border-radius: 30px;
         }
         .edu .item{
@@ -186,7 +186,7 @@
         .edu .item:before{
             content: "";
             width: 1px;
-            background: #f44336;
+            background: #E3495A;
             position: absolute;
             bottom: 0;
             left: 9px;
@@ -203,7 +203,7 @@
         }
 
         .exp .exp-item h3.title{
-            color: #f44336;
+            color: #E3495A;
             font-size: 24px;
         }
         .exp .exp-item{
@@ -352,24 +352,24 @@
                     <h2 class="text-uppercase" contenteditable="true">Contact Me</h2>
                     <div class="d-flex nt-between pt-3">
                         <div class="widget flex-fill" contenteditable="true">
-                            <img src="img/map.svg" class="pr-1 pl-1" width="40px" alt=""> Sydney, Australia
+                            <img src="img/map.svg" class="pr-1 pl-1" width="40px" alt=""> {{this.Social.location}}
                         </div>
                         <div class="widget flex-fill " contenteditable="true">
-                            <img src="img/gmail.svg" class="pr-1 pl-1" width="40px" alt=""> shaqaeqrezai@gmail.com 
+                            <img src="img/gmail.svg" class="pr-1 pl-1" width="40px" alt=""> {{this.Social.email}} 
                         </div>
                     </div>
 
                     <div class="d-flex nt-between pt-3">
                         <div class="widget flex-grow-1 mr-5" contenteditable="true">
-                            <img src="img/linkedin.svg" class="pr-1 pl-1" width="35px" alt=""> /shaqaeq-rezai
+                            <img src="img/linkedin.svg" class="pr-1 pl-1" width="35px" alt=""> {{this.Social.linkedin}}
                         </div>
 
                         <div class="widget flex-fill pl-4" contenteditable="true">
-                            <img src="img/telephone.svg" width="30px" alt=""> 0469 187 107 
+                            <img src="img/telephone.svg" width="30px" alt=""> {{this.Social.phone}} 
                         </div>
 
                         <div class="widget " contenteditable="true">
-                            <img src="img/twitter.svg" width="30px" alt=""> @shaqaeqrezai
+                            <img src="img/twitter.svg" width="30px" alt=""> {{this.Social.twitter}}
                         </div>
 
                     </div>
@@ -422,25 +422,29 @@
                 <div class="contact pl-4">
                     <h2 class="text-uppercase" contenteditable="true">Contact Me</h2>
                     <div class="d-flex nt-between pt-3">
+
                         <div class="widget flex-fill" contenteditable="true">
-                            <img src="img/map.svg" class="pr-1 pl-1" width="40px" alt=""> Sydney, Australia
+                            <img src="img/map.svg" class="pr-1 pl-1" width="40px" alt=""> {{this.Social.location}}
                         </div>
+                        
                         <div class="widget flex-fill " contenteditable="true">
-                            <img src="img/gmail.svg" class="pr-1 pl-1" width="40px" alt=""> shaqaeqrezai@gmail.com 
+                            <img src="img/gmail.svg" class="pr-1 pl-1" width="40px" alt=""> {{this.Social.email}} 
                         </div>
+
                     </div>
 
                     <div class="d-flex nt-between pt-3">
+
                         <div class="widget flex-grow-1 mr-5" contenteditable="true">
-                            <img src="img/linkedin.svg" class="pr-1 pl-1" width="35px" alt=""> /shaqaeq-rezai
+                            <img src="img/linkedin.svg" class="pr-1 pl-1" width="35px" alt=""> {{this.Social.linkedin}}
                         </div>
 
                         <div class="widget flex-fill pl-4" contenteditable="true">
-                            <img src="img/telephone.svg" width="30px" alt=""> 0469 187 107 
+                            <img src="img/telephone.svg" width="30px" alt=""> {{this.Social.phone}} 
                         </div>
 
                         <div class="widget " contenteditable="true">
-                            <img src="img/twitter.svg" width="30px" alt=""> @shaqaeqrezai
+                            <img src="img/twitter.svg" width="30px" alt=""> {{this.Social.twitter}}
                         </div>
 
                     </div>
@@ -468,6 +472,13 @@
                                 'Excellent Public Speaker',
                                 'Leadership Potential'
                             ]
+                    },
+                    Social:{
+                        location: "Sydney, Australia",
+                        email: "shaqaeqrezai@gmail.com",
+                        linkedin: "/shaqaeq-rezai",
+                        phone: "0469 187 107",
+                        twitter: "@shaqaeqrezai",
                     },
                     Education:{
                         list:[
