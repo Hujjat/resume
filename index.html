@@ -267,7 +267,7 @@
 
         .second-page .about-me,
         .second-page .skills{
-            top: 70px;
+            top: 110px;
             padding-top: 0; 
         }
       
@@ -279,6 +279,10 @@
             left: -38px;
             transform: rotate(-90deg);
             top: 12px;
+        }
+
+        .awards .name{
+            font-size: 22px;
         }
         @media print{
             .contact{
@@ -468,18 +472,34 @@
                 <div class="skills">
 
                     <h2 class="text-uppercase" contenteditable="true">Skills</h2>
-                    <div class="exp">
-                        <div class="exp-item" v-for="(item, index) in Experience.list">
-                            <span @click="removeExperience(index)" class="d-print-none float-right badge badge-danger">X</span>
+                    <div class="exp pt-3">
+                        <div class="exp-item pb-2" v-for="(item, index) in SecondSkills.list">
+                            <span @click="removeSecondSkills(index)" class="d-print-none float-right badge badge-danger">X</span>
                             <h3 class="title" contenteditable="true">{{item.title}}</h3>
-                            <h3 class="location" contenteditable="true">{{item.location}}</h3>
-                            <h3 class="date" contenteditable="true">{{item.date}}</h3>
                             <p contenteditable="true">
                                 {{item.des}}
                             </p>
 
                         </div>
-                        <span @click="addExperience" class="d-print-none badge badge-success">+</span>
+                        <span @click="addSecondSkills" class="d-print-none badge badge-success">+</span>
+                    </div>
+
+                    <h2 class="text-uppercase" contenteditable="true">
+                        <img src="img/badge.svg" width="45" alt="" srcset="">
+                        AWARDS
+                    </h2>
+
+                    <div class="awards">
+
+                        <div class="award-item pb-2" v-for="(item, index) in Awards.list">
+                                <span @click="removeAwards(index)" class="d-print-none float-right badge badge-danger">X</span>
+                                <h3 class="name" contenteditable="true"> <b>{{item.name}}</b> - {{item.date}}</h3>
+                                <p contenteditable="true">
+                                    {{item.des}}
+                                </p>
+                        </div>
+                        <span @click="addAwards" class="d-print-none badge badge-success">+</span>
+
                     </div>
 
                 </div>
@@ -530,6 +550,32 @@
 
         var realData = {
                     fullName: "Shaqaeq Rezai",
+                    SecondSkills:{
+                        list:
+                           [
+                                {
+                                    title: 'Problem-solving skills',
+                                    des: `
+                                        I am able to effectively break down and solve many complications 
+                                        and dilemmas. I have strengthened this skill through studying user 
+                                        experience design and solving multiple robotic obstacles
+                                        in school.
+                                    `
+                                },
+                                {
+                                    title: 'Interpersonal and interpersonal skills',
+                                    des: `
+                                        I can easily make connections with people and communicate with them on a personal and professional level. This is due to my friendly and positive attitude and nature creating a comfortable environment for others.
+                                    `
+                                },
+                                {
+                                    title: 'Computer/Technology Literacy',
+                                    des: `
+                                        I am up to date with all the new technology, I am able to use Word, PowerPoint and Excel very well as well as use photoshop and other devices to to create compelling graphic designs and themes.            `
+                                },
+
+                           ]
+                    },
                     Skills:{
                         list:
                             [
@@ -597,7 +643,7 @@
                             name: 'Directaaus.com.au',
                             position: 'Director and Founder',
                             date: '2018',
-                            des: `Social enterprise <b> website </b> to help newly arrived migrants and refugee access settlement services <br><br>
+                            des: `Social enterprise website to help newly arrived migrants and refugee access settlement services <br><br>
                             <ul>
                                 
                                 <li>Social Media Marketing</li>
@@ -633,6 +679,26 @@
                             },
                         ]
                     },
+
+                    Awards:{
+                        list:[
+                            {
+                            name: 'Julie award',
+                            date: '2018',
+                            des: `Given by Youth of The streets to acknowledge my 
+                                continuous effort for volunteering and enacting 
+                                social change`
+                            },
+                            {
+                            name: 'ARIA Citizenship Refugee Award',
+                            date: '2018',
+                            des: `Afghan youth achievement award to
+                                    appreciate my contribution to Australian
+                                    community through advocacy and
+                                    volunteering`
+                            },
+                        ]
+                    },
         };
         // end realData
 
@@ -645,12 +711,22 @@
                     removeExperience: function(index){
                         this.Experience.list.splice(index, 1);
                     },
+                    removeremoveAwards: function(index){
+                        this.removeAwards.list.splice(index, 1);
+                    },
+
                     removeEducation: function(index){
                         this.Education.list.splice(index, 1);
                     },
+
+                    removeSecondSkills: function(index){
+                        this.SecondSkills.list.splice(index, 1);
+                    },
+
                     removeExperienceTwo: function(index){
                         this.ExperienceTwo.list.splice(index, 1);
                     },
+                    
                     removeSkill: function(index){
                         this.Skills.list.splice(index, 1);
                     },
@@ -673,6 +749,20 @@
                         this.Education.list.push({
                                 name:"New Education",
                                 date:"New Date",
+                                des:"New Description"
+                        });
+                    },
+
+                    addAwards: function(){
+                        this.Awards.list.push({
+                                name:"Award Name",
+                                date:"2019",
+                                des:"New Description"
+                        });
+                    },
+                    addSecondSkills: function(){
+                        this.SecondSkills.list.push({
+                                title:"New Skill",
                                 des:"New Description"
                         });
                     },
