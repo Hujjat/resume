@@ -167,11 +167,20 @@
             position: relative;
             height: 170px;
         }
+        .edu.exp-two .item{
+            height: auto;
+        }
         .edu .item:not(:first-child){
             margin-top: -10px;
             top: -10px;
         }
-
+        .edu.exp-two .item:not(:first-child){
+            margin-top: auto;
+            top:auto;
+        }
+        .edu.exp-two .item:last-child{
+            background: red;
+        }
         .edu .item h3.point{
             font-size: 20px;
             font-weight: bold;
@@ -182,19 +191,30 @@
         .edu .item p{
         }
 
-      
+        .edu.exp-two :nth-last-child(2):before{
+
+        }
         .edu .item:before{
             content: "";
             width: 1px;
-            background: #E3495A;
+            background-color: #E3495A;
             position: absolute;
             bottom: 0;
             left: 9px;
-            top: 7px;                    
+            top: 7px; 
+                         
         }
         .edu .item:last-of-type:before{
             background-color:transparent;
         }
+
+        .edu.exp-two .item:last-of-type:before{
+            background-color: #E3495A;
+        }
+        .edu.exp-two .item .name{
+            font-weight: 700;
+        }
+        .edu .item .position,
         .edu .item .name{
             font-size: 22px;
         }
@@ -231,6 +251,14 @@
             width: 660px;    
 
         }
+        
+        .second-page .contact{
+            position: absolute;
+            bottom: -280px;
+            color: #fff;
+            width: 660px;    
+
+        }
 
         .z-index-top{
             position: relative;
@@ -239,10 +267,19 @@
 
         .second-page .about-me,
         .second-page .skills{
-            top: 110px;
+            top: 70px;
             padding-top: 0; 
         }
       
+        .edu.edu.exp-two  h3.point{
+            display: inline;
+        }
+        .edu.edu.exp-two  h3.date{
+            position: absolute;
+            left: -38px;
+            transform: rotate(-90deg);
+            top: 12px;
+        }
         @media print{
             .contact{
                 bottom: -670px;
@@ -257,6 +294,11 @@
                padding-top: 4rem;
                width: 100%;
                height: 100%;
+            }
+
+            .second-page .contact{
+                position: absolute;
+                bottom: -380px;
             }
 
             .page.second-page{
@@ -386,18 +428,40 @@
                 <div class="about-me br-right">
                     <h2 class="text-uppercase" contenteditable="true">Work Experience</h2>
 
-                    <div class="edu">
-                        <div class="item" v-for="(item, index) in Education.list">
-                            <span @click="removeEducation(index)" class="d-print-none z-index-top badge badge-danger float-right">X</span>
-                            <h3 class="point" contenteditable="true">{{item.date}}</h3>
+                    <div class="edu exp-two">
+                        <div class="item" v-for="(item, index) in ExperienceTwo.list">
+                            <span @click="removeExperienceTwo(index)" class="d-print-none z-index-top badge badge-danger float-right">X</span>
+                            <h3 class="date" contenteditable="true">{{item.date}}</h3>
+                            <h3 class="point" contenteditable="true"></h3>
                             <h3 class="name" contenteditable="true">{{item.name}}</h3>
-                            <p contenteditable="true">
-                                {{item.des}}
+                            <h3 class="position" contenteditable="true">{{item.position}}</h3>
+                            <p contenteditable="true" v-html="item.des">
+                               
                             </p>
 
                         </div>
-                        <span @click="addEducation" class="d-print-none badge badge-success">+</span>
+                        <span @click="addExperienceTwo" class="d-print-none badge badge-success">+</span>
                     </div>
+
+                    
+                    <h2 class="text-uppercase" contenteditable="true">LANGUAGES</h2>
+                    <div>
+                        <b>English</b>
+                        <div class="progress mb-2">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <b>Dari</b>
+                        <div class="progress mb-2">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <b>Persian</b>
+                        <div class="progress mb-2">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+
+
+                    </div>
+
 
                 </div>
 
@@ -417,6 +481,7 @@
                         </div>
                         <span @click="addExperience" class="d-print-none badge badge-success">+</span>
                     </div>
+
                 </div>
 
                 <div class="contact pl-4">
@@ -524,7 +589,50 @@
                             },
                            
                         ]
-                    }
+                    },
+
+                    ExperienceTwo:{
+                        list:[
+                            {
+                            name: 'Directaaus.com.au',
+                            position: 'Director and Founder',
+                            date: '2018',
+                            des: `Social enterprise <b> website </b> to help newly arrived migrants and refugee access settlement services <br><br>
+                            <ul>
+                                
+                                <li>Social Media Marketing</li>
+                                <li>Pitching</li>
+                                <li>User Research</li>
+                                <li>Content Writing</li>
+                                <li>Managing volunteers</li>
+                            </ul>`
+                            },
+                            {
+                            name: 'Migration Lawyer',
+                            position: 'Interpreter',
+                            date: '2018',
+                            des: 'Dari to English and English to Dari interpreter for migration lawyers to clients, verbally and written translations'
+                            },
+                            {
+                            name: 'Youth Led Project Manager',
+                            position: 'Community Migrant Resource Centre',
+                            date: '2017',
+                            des: 'Overall responsibility for the planning, design, execution, monitoring of youth led projects.'
+                            },
+                            {
+                            name: 'All Rounder Kitchen Hand',
+                            position: "Sibydie's Pide & Kebab",
+                            date: '2017',
+                            des: `Wash and clean utensils and dishes, wash, peel, chop, cut, prepare and cook ingredients. Customer server and cashier in fast paced environment`
+                            },
+                            {
+                            name: 'Dari Language Teacher',
+                            position: "Shams Dari School",
+                            date: '2017',
+                            des: `Taught year three Australian born children written and verbal Dari Language`
+                            },
+                        ]
+                    },
         };
         // end realData
 
@@ -539,6 +647,9 @@
                     },
                     removeEducation: function(index){
                         this.Education.list.splice(index, 1);
+                    },
+                    removeExperienceTwo: function(index){
+                        this.ExperienceTwo.list.splice(index, 1);
                     },
                     removeSkill: function(index){
                         this.Skills.list.splice(index, 1);
@@ -573,7 +684,17 @@
                                 date:"2019 - 2030",
                                 des:"New Description"
                         });
-                    }
+                    },
+
+                    addExperienceTwo: function(){
+                        this.ExperienceTwo.list.push({
+                                name:"New Title",
+                                position:"Your Position",
+                                location:"New Location",
+                                date:"2019",
+                                des:"New Description"
+                        });
+                    },
                 },
                 mounted: function(){
                     // console.log(this.getData());
