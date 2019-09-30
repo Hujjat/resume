@@ -19,7 +19,7 @@
         }
         .fullName{
                position: absolute;
-                top: 157px;
+                top: 100px;
                 background: #2a2a2a;
                 color: #fff;
                 border-radius: 30px;
@@ -51,14 +51,14 @@
         .dot1{
             width: 67px;
             height: 23px;
-            top: 221px;
+            top: 150px;
             right: 100px;
         }
 
         .dot2{
             width: 34px;
             height: 23px;
-            top: 221px;
+            top: 150px;
             right: 64px;
         }
 
@@ -109,7 +109,7 @@
 
         .about-me{
             position: relative;
-            top: 360px;
+            top: 240px;
             width: 48%;
             padding: 1rem;
             min-height: 800px;
@@ -123,7 +123,7 @@
         }
         .skills{
             position: absolute;
-            top: 360px;
+            top: 240px;
             right: 0;
             width: 50%;
             padding: 1rem;
@@ -164,7 +164,7 @@
             padding-left: 2.1rem;
             margin-top: 1.6rem;
             position: relative;
-            height: 170px;
+            height: 135px;
         }
         .edu.exp-two .item{
             height: auto;
@@ -342,7 +342,8 @@
 
                 <div class="about-me br-right">
                     <h2 class="text-uppercase" contenteditable="true">About me</h2>
-                    <p contenteditable="true">I am an enthusiastic learner and an excellent team player with remarkable leadership skills. I have outstanding communication expertise with distinctive qualities in project management , social media content strategy and user experience design. I enjoy solving problems using contemporary research methods.</p>
+                    <p contenteditable="true">I am a highly personable individual with "contagious enthusiasm" and positivity. I have excellent leadership qualities as well as an amazing team player attitude. This is in addition to my outstanding communication skills and an unforgettable personality. I am a thinker and a dreamer.
+                    </p>
                     <h2 class="text-uppercase mt-5" contenteditable="true">Education</h2>
 
                     <div class="edu">
@@ -362,7 +363,7 @@
 
                 <div class="skills">
 
-                    <h2 class="text-uppercase" contenteditable="true">Skills</h2>
+                    <h2 class="text-uppercase" contenteditable="true">STRENGTHS</h2>
                     <ul>
                         <li class="star-style" v-for="(skill, index) in Skills.list" :key="skill.id" contenteditable="true">{{skill}}
                             <span @click="removeSkill(index)" class="d-print-none badge badge-danger float-right">X</span>
@@ -370,16 +371,16 @@
                         <span @click="addSkillOne" class="d-print-none badge badge-success">+</span>
                     </ul>
 
-                    <h2 class="text-uppercase mt-5" contenteditable="true">Volunteering Experience</h2>
+                    <h2 class="text-uppercase mt-5" contenteditable="true">WORK EXPERIENCE </h2>
                     <div class="exp">
                         <div class="exp-item" v-for="(item, index) in Experience.list">
                             <span @click="removeExperience(index)" class="d-print-none float-right badge badge-danger">X</span>
                             <h3 class="title" contenteditable="true">{{item.title}}</h3>
                             <h3 class="location" contenteditable="true">{{item.location}}</h3>
                             <h3 class="date" contenteditable="true">{{item.date}}</h3>
-                            <p contenteditable="true">
-                                {{item.des}}
-                            </p>
+                            <div contenteditable="true" v-html="item.des">
+                                
+                            </div>
 
                         </div>
                         <span @click="addExperience" class="d-print-none badge badge-success">+</span>
@@ -420,12 +421,13 @@
         <!-- second page -->
         <div class="page second-page">
             <div class="container position-relative">
-               
+
+              
                 <div class="about-me br-right">
-                    <h2 class="text-uppercase" contenteditable="true">Work Experience</h2>
+                    <h2 class="text-uppercase" contenteditable="true">VOLUNTEERING EXPERIENCE</h2>
 
                     <div class="edu exp-two">
-                        <div class="item" v-for="(item, index) in ExperienceTwo.list">
+                        <div class="item" v-for="(item, index) in volunteerExp.list">
                             <span @click="removeExperienceTwo(index)" class="d-print-none z-index-top badge badge-danger float-right">X</span>
                             <h3 class="date" contenteditable="true">{{item.date}}</h3>
                             <h3 class="point" contenteditable="true"></h3>
@@ -463,68 +465,26 @@
 
                 <div class="skills">
 
-                    <h2 class="text-uppercase" contenteditable="true">Skills</h2>
-                    <div class="exp pt-3">
-                        <div class="exp-item pb-2" v-for="(item, index) in SecondSkills.list">
-                            <span @click="removeSecondSkills(index)" class="d-print-none float-right badge badge-danger">X</span>
+                    <h2 class="text-uppercase mt-0" contenteditable="true">WORK EXPERIENCE </h2>
+                    <div class="exp">
+                        <div class="exp-item" v-for="(item, index) in ExperienceTwo.list">
+                            <span @click="removeExperience(index)" class="d-print-none float-right badge badge-danger">X</span>
                             <h3 class="title" contenteditable="true">{{item.title}}</h3>
-                            <p contenteditable="true">
-                                {{item.des}}
-                            </p>
+                            <h3 class="location" v-if="item.location" contenteditable="true">{{item.location}}</h3>
+                            <h3 class="date" v-if="item.date" contenteditable="true">{{item.date}}</h3>
+                            <div contenteditable="true" v-html="item.des">
+                                
+                            </div>
 
                         </div>
-                        <span @click="addSecondSkills" class="d-print-none badge badge-success">+</span>
+                        <span @click="addExperience" class="d-print-none badge badge-success">+</span>
                     </div>
-
-                    <h2 class="text-uppercase" contenteditable="true">
-                        <img src="img/badge.svg" width="45" alt="" srcset="">
-                        AWARDS
-                    </h2>
-
-                    <div class="awards">
-
-                        <div class="award-item pb-2" v-for="(item, index) in Awards.list">
-                                <span @click="removeAwards(index)" class="d-print-none float-right badge badge-danger">X</span>
-                                <h3 class="name" contenteditable="true"> <b>{{item.name}}</b> - {{item.date}}</h3>
-                                <p contenteditable="true">
-                                    {{item.des}}
-                                </p>
-                        </div>
-                        <span @click="addAwards" class="d-print-none badge badge-success">+</span>
-
-                    </div>
-
                 </div>
 
+
+
                 <div class="contact pl-4">
-                    <h2 class="text-uppercase" contenteditable="true">Contact Me</h2>
-                    <div class="d-flex nt-between pt-3">
-
-                        <div class="widget flex-fill" contenteditable="true">
-                            <img src="img/map.svg" class="pr-1 pl-1" width="40px" alt=""> {{this.Social.location}}
-                        </div>
-                        
-                        <div class="widget flex-fill " contenteditable="true">
-                            <img src="img/gmail.svg" class="pr-1 pl-1" width="40px" alt=""> {{this.Social.email}} 
-                        </div>
-
-                    </div>
-
-                    <div class="d-flex nt-between pt-3">
-
-                        <div class="widget flex-grow-1 mr-5" contenteditable="true">
-                            <img src="img/linkedin.svg" class="pr-1 pl-1" width="35px" alt=""> {{this.Social.linkedin}}
-                        </div>
-
-                        <div class="widget flex-fill pl-4" contenteditable="true">
-                            <img src="img/telephone.svg" width="30px" alt=""> {{this.Social.phone}} 
-                        </div>
-
-                        <div class="widget " contenteditable="true">
-                            <img src="img/twitter.svg" width="30px" alt=""> {{this.Social.twitter}}
-                        </div>
-
-                    </div>
+                    
                 </div>
 
             </div>
@@ -571,9 +531,15 @@
                     Skills:{
                         list:
                             [
-                                'Unique social media content creator',
-                                'Excellent Public Speaker',
-                                'Leadership Potential'
+                                'Exceptional customer service',
+                                'WordPress content creator',
+                                'E-commerce experience',
+                                "Excellent team player",
+                                "Effective clear verbal and written communication skills",
+                                "Powerful Organisation skills",
+                                "Ability to efficiently delierver tasks under pressure",
+                                "Sentimental Storyteller ",
+                                "High level of emotional intelligent",
                             ]
                     },
                     Social:{
@@ -585,11 +551,13 @@
                     },
                     Education:{
                         list:[
+
                             {
-                            name: 'Soften High School',
-                            date: '2013 - 2018',
-                            des: 'Graduated Year 12 and successfully completed HSC with over 90% attendance.'
+                            name: 'University of Technology Sydney',
+                            date: '201 - present',
+                            des: 'Studying Bachelor of Communication Digital and Social Media'
                             },
+
                             {
                             name: 'Academy Xi',
                             date: '2017 - 2018',
@@ -599,6 +567,11 @@
                             name: 'HS1917 UNSW',
                             date: '2017',
                             des: 'Programming and computer design.'
+                            },
+                            {
+                            name: 'Soften High School',
+                            date: '2013 - 2018',
+                            des: 'Graduated Year 12 and successfully completed HSC with over 90% attendance.'
                             }
                         ]
                     },
@@ -606,25 +579,17 @@
                     Experience:{
                         list:[
                             {
-                            title: 'Director',
-                            location: 'Directaaus.com.au',
-                            date: '2018',
-                            des: 'Created a platform to help newly arrived migrants and refugees access resettlement services in Australia.'
+                            title: 'Executive Assistant and Media Coordinator',
+                            location: 'Heart and Soul Hoops',
+                            date: '2019 - present',
+                            des: `<p>Responsibility to manage all client to company and company to client correspondence hrough email, online inquiries, and phone calls. Duty to organise, plan and execute grand events, media and advertisement campaigns. Responsible to update the website, social media, management of the newsletter,  create online content and printables as well as recruitting new staff. Excellent skills in financial budgeting as well as creating new sales channels to ncrease revenue. </p>
+                                <ul> 
+                                    <li>Social Media Marketing and managing the online presence </li>                       <li>Advertisement and Commercial campaigns</li>
+                                    <li>Staff recruiting </li>
+                                </ul> `
                             },
                            
-                            {
-                            title: 'Interpreter',
-                            location: 'The law firm',
-                            date: '2017 - 2018',
-                            des: 'I was a casual interpreter in the Law Firm.'
-                            },
                            
-                            {
-                            title: 'Youth led project manager',
-                            location: 'The law firm',
-                            date: '2016 - 2017',
-                            des: 'Youth led project manager  Community migrant and resource centre'
-                            },
                            
                         ]
                     },
@@ -632,43 +597,104 @@
                     ExperienceTwo:{
                         list:[
                             {
-                            name: 'Directaaus.com.au',
-                            position: 'Director and Founder',
+                            title: 'Tour Guide at Refugee Camp in My Neighborhood',
+                            location: 'Cumberland Council',
+                            date: '2019',
+                            des: `
+                                <ul>
+                                    <li> Guide school groups and members of the public through a simulated refugee camp; </li>
+                                    <li>  Share personal experiences and knowledge of the refugee journey to Australia; </li>
+                                    <li>  Introduce tour groups to community-based organisations for further information and opportunities for advocacy;</li>
+                                    <li>   Ensure the well-being and safety of all participants during the tour </li>
+
+                                </ul>
+                            
+                            `
+                            },
+                            {
+                            title: 'Youth Peer Researcher ',
+                            location: 'Western Sydney University | Multicultural NSW ',
+                            date: '2019',
+                            des:  `
+                                <ul>
+                                    <li>Co-facilitate workshops and interviews for young people, preparing questions, monitoring groups, leading discussions and encouraging participation;</li>
+                                    <li>Planning workshops</li>
+                                    <li>Develop a social media outreach strategy</li>
+                                    <li> Contribute to project reports after workshop delievery</li>
+                                    <li> Present findings at a workshop to government policymakers </li>
+                                </ul>
+                            `
+                            },
+                            {
+                            title: 'Youth Led Project Manager',
+                            location: 'Community Migrant Resource Centre',
+                            date: '2017',
+                            des: '<p>Overall responsibility for the planning, design, execution, monitoring of youth led projects.</p>'
+                            },
+                            {
+                            title: 'Interpreter',
+                            location: "SBC Lawyers and Solicitors",
                             date: '2018',
-                            des: `Social enterprise website to help newly arrived migrants and refugee access settlement services <br><br>
-                            <ul>
-                                
-                                <li>Social Media Marketing</li>
-                                <li>Pitching</li>
-                                <li>User Research</li>
-                                <li>Content Writing</li>
-                                <li>Managing volunteers</li>
-                            </ul>`
+                            des: `<p>Immigration firm interpreter. English to Dari and Dari to English
+                                    interpretation of legal language. Assisting individuals with the
+                                    preparation of crucial Visa interviews. </p> 
+                                `
                             },
                             {
-                            name: 'Migration Lawyer',
-                            position: 'Interpreter',
+                            title: 'Reference',
+                            des: `Will be provided upon request. 
+                                    Please contact me via email 
+                                    Shaqaeqrezai@gmail.com
+                                    `
+                            }
+                        ]
+                    },
+
+                    volunteerExp:{
+                        list:[
+                            {
+                            name: 'Director',
+                            position: 'Directaaus.com.au',
                             date: '2018',
-                            des: 'Dari to English and English to Dari interpreter for migration lawyers to clients, verbally and written translations'
+                            des: `
+                               <p>Created an online platform for newly arrived migrants and refugees to access free resettlement services in Australia. </p>
+                            `
                             },
                             {
-                            name: 'Youth Led Project Manager',
-                            position: 'Community Migrant Resource Centre',
-                            date: '2017',
-                            des: 'Overall responsibility for the planning, design, execution, monitoring of youth led projects.'
+                            name: 'Young Guide',
+                            position: 'Museum of Contemporary Art Australia',
+                            date: '2018',
+                            des: `
+                               <p>Art tour guide, defining and explaining complex art concepts for the general public weekly. </p> `
                             },
                             {
-                            name: 'All Rounder Kitchen Hand',
-                            position: "Sibydie's Pide & Kebab",
+                            name: 'Youth Advisory Committee Member',
+                            position: 'Youth off the Streets',
                             date: '2017',
-                            des: `Wash and clean utensils and dishes, wash, peel, chop, cut, prepare and cook ingredients. Customer server and cashier in fast paced environment`
+                            des: `
+                               <p> Role to support socially disconnected youth through
+                                    initiating projects alongside the team community to
+                                    shape meaningful relationships with the local
+                                    community. 
+                                    </p>
+                            `
                             },
                             {
-                            name: 'Dari Language Teacher',
-                            position: "Shams Dari School",
+                            name: 'English Teacher ',
+                            position: 'STARTS: Service for the Treatment and Rehabilitation of Torture and Trauma Survivors',
                             date: '2017',
-                            des: `Taught year three Australian born children written and verbal Dari Language`
+                            des: `
+                               <p> English Teacher for adult male refugee and asylum
+                                    seeker students. Responsible for all class material,
+                                    organising curriculum and class plans. 
+                                </p>
+                            `
                             },
+                            {
+                            name: 'Availability ',
+                            position: 'Monday-Sunday',
+                            }
+  
                         ]
                     },
 
